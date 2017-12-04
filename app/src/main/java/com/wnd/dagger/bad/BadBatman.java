@@ -1,4 +1,4 @@
-package com.wnd.dagger.good;
+package com.wnd.dagger.bad;
 
 import com.wnd.dagger.weapon.Batarang;
 
@@ -6,14 +6,13 @@ import com.wnd.dagger.weapon.Batarang;
  * Created by Wandy on 03/12/17.
  */
 
-public class Batman {
+public class BadBatman {
 
     Batarang batarang;
 
-    public Batman(Batarang batarang) {
-        //batarang = new Batarang(12, 20);
-
-        this.batarang = batarang;
+    public BadBatman() {
+        batarang = new Batarang(12
+                , 20);
     }
 
     public int attack() {
@@ -22,5 +21,10 @@ public class Batman {
 
     public int attackSpeed() {
         return batarang.velocity();
+    }
+
+    public void setupWeapon() {
+        batarang = new Batarang(12
+                , 20);
     }
 }

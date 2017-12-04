@@ -8,28 +8,59 @@
 
     <TextView
         android:id="@+id/tv_attackpower_desc"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Attack Power : "/>
+        android:text="Attack Power : " />
 
     <TextView
         android:id="@+id/tv_attackpower"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv_attackpower_desc"/>
+        android:layout_toRightOf="@+id/tv_attackpower_desc" />
 
 
     <TextView
         android:id="@+id/tv_attackspeed_desc"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Attack Speed : "
-        android:layout_below="@id/tv_attackpower_desc"/>
+        android:layout_below="@id/tv_attackpower_desc"
+        android:text="Attack Speed : " />
 
     <TextView
         android:id="@+id/tv_attackspeed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/tv_attackspeed_desc"
-        android:layout_alignTop="@id/tv_attackpower_desc"/>
+        android:layout_alignTop="@id/tv_attackspeed_desc"
+        android:layout_toRightOf="@+id/tv_attackspeed_desc" />
+
+
+    <TextView
+        android:id="@+id/tv_attackpower_badassbatman_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_attackspeed"
+        android:layout_marginTop="20dp"
+        android:text="Attack Power : " />
+
+    <TextView
+        android:id="@+id/tv_attackpower_badassbatman"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_attackpower_badassbatman_desc"
+        android:layout_alignTop="@+id/tv_attackpower_badassbatman_desc"/>
+
+
+    <TextView
+        android:id="@+id/tv_attackspeed_badassbatman_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_attackpower_badassbatman_desc"
+        android:text="Attack Speed : " />
+
+    <TextView
+        android:id="@+id/tv_attackspeed_badassbatman"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tv_attackspeed_badassbatman_desc"
+        android:layout_toRightOf="@+id/tv_attackspeed_badassbatman_desc" />
 </RelativeLayout>
