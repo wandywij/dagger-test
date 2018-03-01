@@ -13,12 +13,12 @@ import dagger.Provides;
 @Module
 public class TestWeaponModule extends WeaponModule {
 
-    @Provides @Named("grapling_hook")
+    @Provides @Named("test_grapling_hook")
     public Weapon provideTestWeapon() {
         return new GraplingHook();
     }
 
-    @Provides @Named("bass_voice")
+    @Provides @Named("test_bass_voice")
     public Weapon provideBassVoice() {
         return new BassVoice();
     }

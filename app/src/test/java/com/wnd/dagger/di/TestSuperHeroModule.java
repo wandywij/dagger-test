@@ -13,12 +13,12 @@ import dagger.Provides;
 public class TestSuperHeroModule extends SuperHeroModule {
 
     @Provides @Named("test_batman_with_bass_voice")
-    public BadAssBatman provideTestBatmanWithBassVoice(@Named("bass_voice") Weapon weapon) {
+    public BadAssBatman provideTestBatmanWithBassVoice(@Named("test_bass_voice") Weapon weapon) {
         return new BadAssBatman(weapon);
     }
 
     @Provides @Named("test_batman_with_grapling_hook")
-    public BadAssBatman provideTestBatman(@Named("grapling_hook") Weapon weapon) {
+    public BadAssBatman provideTestBatman(@Named("test_grapling_hook") Weapon weapon) {
         return new BadAssBatman(weapon);
     }
 

@@ -1,66 +1,61 @@
 package com.wnd.dagger;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.wnd.dagger.bad.BadBatman;
-import com.wnd.dagger.best.BadAssBatman;
-import com.wnd.dagger.di.DaggerSuperHeroComponent;
-import com.wnd.dagger.di.DaggerWeaponComponent;
 import com.wnd.dagger.di.SuperHeroComponent;
-import com.wnd.dagger.di.SuperHeroModule;
 import com.wnd.dagger.di.WeaponComponent;
-import com.wnd.dagger.di.WeaponModule;
-import com.wnd.dagger.weapon.GraplingHook;
-import com.wnd.dagger.weapon.Laser;
-import com.wnd.dagger.weapon.Weapon;
+import com.wnd.dagger.good.GoodBatman;
+import com.wnd.dagger.weapon.BassVoice;
+import com.wnd.dagger.weapon.Batarang;
+import com.wnd.dagger.weapon.FasterBatarang;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView tvAttackPower, tvAttackSpeed, tvAttackPowerBadAss, tvAttackSpeedBadAss;
     private SuperHeroComponent superHeroComponent;
     private WeaponComponent weaponComponent;
 
-    @Inject
-    BadAssBatman badAssBatman;
+    @BindView(R.id.tv_attackpower_a)
+    TextView tvAttackPowerA;
+    @BindView(R.id.tv_attackspeed_a)
+    TextView tvAttackSpeedA;
+    @BindView(R.id.tv_attackpower_b)
+    TextView tvAttackPowerB;
+    @BindView(R.id.tv_attackspeed_b)
+    TextView tvAttackSpeedB;
+    @BindView(R.id.tv_attackpower_c)
+    TextView tvAttackPowerC;
+    @BindView(R.id.tv_attackspeed_c)
+    TextView tvAttackSpeedC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        tvAttackPower = (TextView) this.findViewById(R.id.tv_attackpower);
-        tvAttackSpeed = (TextView) this.findViewById(R.id.tv_attackspeed);
+        ButterKnife.bind(this);
 
         BadBatman badBatman = new BadBatman();
-        int attackPower = badBatman.attack();
-        int attackSpeed = badBatman.attackSpeed();
+        tvAttackPowerA.setText(badBatman.attack() + "");
+        tvAttackSpeedA.setText(badBatman.attackSpeed() + "");
 
-        tvAttackPower.setText(attackPower + "");
-        tvAttackSpeed.setText(attackSpeed + "");
+        GoodBatman goodBatman = new GoodBatman(new FasterBatarang());
+        tvAttackPowerB.setText(goodBatman.attack() + "");
+        tvAttackSpeedB.setText(goodBatman.attackSpeed() + "");
 
-        setupWeaponComponent();
+        GoodBatman goodBatmanWithBassVoice = new GoodBatman(new BassVoice());
+        tvAttackPowerC.setText(goodBatmanWithBassVoice.attack() + "");
+        tvAttackSpeedC.setText(goodBatmanWithBassVoice.attackSpeed() + "");
     }
 
-    public void setupWeaponComponent() {
-        superHeroComponent = DaggerSuperHeroComponent.builder()
-                .superHeroModule(new SuperHeroModule())
-                .weaponModule(new WeaponModule())
-                .build();
-
-        superHeroComponent.inject(this);
-
-        tvAttackPowerBadAss = (TextView) this.findViewById(R.id.tv_attackpower_badassbatman);
-        tvAttackSpeedBadAss = (TextView) this.findViewById(R.id.tv_attackspeed_badassbatman);
-        tvAttackPowerBadAss.setText(
-                badAssBatman.doAttack() + "");
-        tvAttackSpeedBadAss.setText(
-                badAssBatman.velocity() + "");
-
-
+    @OnClick(R.id.goto_good)
+    public void gotoGoodActivity() {
+        startActivity(new Intent(this, GoodActivity.class));
     }
 }

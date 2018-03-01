@@ -1,20 +1,22 @@
 package com.wnd.dagger.good;
 
+import com.wnd.dagger.weapon.BassVoice;
 import com.wnd.dagger.weapon.Batarang;
+import com.wnd.dagger.weapon.Weapon;
 
 
 public class GoodBatman {
+    Weapon weapon;
 
-    Batarang batarang;
-    public GoodBatman(Batarang batarang) {
-        this.batarang = batarang;
+    public GoodBatman(Weapon weapon) {
+        this.weapon = weapon;
     }
 
     public int attack() {
-        return batarang.doAttack();
+        return weapon.doAttack();
     }
 
     public int attackSpeed() {
-        return batarang.velocity();
+        return weapon.velocity();
     }
 }
