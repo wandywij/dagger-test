@@ -2,6 +2,7 @@ package com.wnd.dagger.di;
 
 import com.wnd.dagger.weapon.BassVoice;
 import com.wnd.dagger.weapon.GraplingHook;
+import com.wnd.dagger.weapon.Gun;
 import com.wnd.dagger.weapon.Laser;
 import com.wnd.dagger.weapon.Weapon;
 
@@ -14,10 +15,38 @@ import dagger.Provides;
 @Module
 public class WeaponModule {
 
+    private int attack = 1;
+    private int velocity = 1;
+
+    public WeaponModule(int attack, int velocity) {
+        this.attack = attack;
+        this.velocity = velocity;
+    }
+
     @Provides
     public Weapon provideDefaultWeapon() {
         return new Laser();
     }
+
+    @Provides
+    @Named("gun")
+    public Weapon provideGun(@Named("attack") int attack
+            , @Named("velocity") int velocity) {
+        return new Gun(attack, velocity);
+    }
+
+    @Provides
+    @Named("attack")
+    public int provideAttack() {
+        return this.attack;
+    }
+
+    @Provides
+    @Named("velocity")
+    public int provideVelocity() {
+        return this.velocity;
+    }
+
 
     /*@Provides
    // @Named("grapling_hook")

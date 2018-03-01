@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private WeaponComponent weaponComponent;
 
     @Inject
+    @Named("gun")
     BadAssBatman badAssBatman;
 
     @Override
@@ -49,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     public void setupWeaponComponent() {
         superHeroComponent = DaggerSuperHeroComponent.builder()
                 .superHeroModule(new SuperHeroModule())
-                .weaponModule(new WeaponModule())
+                .weaponModule(new WeaponModule(2, 6))
                 .build();
 
         superHeroComponent.inject(this);
