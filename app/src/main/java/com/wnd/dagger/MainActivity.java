@@ -62,7 +62,5 @@ public class MainActivity extends AppCompatActivity {
                 badAssBatman.doAttack() + "");
         tvAttackSpeedBadAss.setText(
                 badAssBatman.velocity() + "");
-
-
     }
 }

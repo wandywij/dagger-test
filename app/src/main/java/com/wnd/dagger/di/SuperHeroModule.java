@@ -24,6 +24,12 @@ public class SuperHeroModule {
         return new BadAssBatman(weapon);
     }
 
+    @Provides
+    @Named("laser")
+    public BadAssBatman provideBatmanWithLaser(@Named("laser") Weapon weapon) {
+        return new BadAssBatman(weapon);
+    }
+
     /*@Provides
     @Named("grapling_hook")
     public BadAssBatman provideBatmanWithGraplingHook(@Named("grapling_hook") Weapon weapon) {

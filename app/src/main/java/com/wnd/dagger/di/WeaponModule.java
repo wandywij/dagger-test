@@ -40,6 +40,12 @@ public class WeaponModule {
     }
 
     @Provides
+    @Named("laser")
+    public Weapon provideLaser() {
+        return new Laser();
+    }
+
+    @Provides
     @Named("attack")
     public int provideAttack() {
         return this.attack;
