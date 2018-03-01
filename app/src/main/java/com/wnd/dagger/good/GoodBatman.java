@@ -2,9 +2,6 @@ package com.wnd.dagger.good;
 
 import com.wnd.dagger.weapon.Batarang;
 
-/**
- * Created by Wandy on 03/12/17.
- */
 
 public class GoodBatman {
 

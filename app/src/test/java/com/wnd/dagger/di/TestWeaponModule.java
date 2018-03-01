@@ -9,9 +9,6 @@ import javax.inject.Named;
 import dagger.Module;
 import dagger.Provides;
 
-/**
- * Created by wandy on 12/4/17.
- */
 
 @Module
 public class TestWeaponModule extends WeaponModule {

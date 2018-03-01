@@ -1,8 +1,5 @@
 package com.wnd.dagger.weapon;
 
-/**
- * Created by wandy on 12/4/17.
- */
 
 public class FasterBatarang implements Weapon {
     private int attackPower = 30;

@@ -25,11 +25,12 @@ public class MainActivity extends AppCompatActivity {
     private WeaponComponent weaponComponent;
 
     @Inject
-    @Named("with-bass-voice")
+    @Named("laser")
     BadAssBatman badAssBatman;
 
-    @Inject
-    GraplingHook graplingHook;
+    //@Inject
+    //@Named("grapling_hook")
+    //GraplingHook graplingHook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,10 +55,10 @@ public class MainActivity extends AppCompatActivity {
                 .weaponModule(new WeaponModule())
                 .build();
 
-        weaponComponent = DaggerWeaponComponent.builder()
+        /*weaponComponent = DaggerWeaponComponent.builder()
                 .weaponModule(new WeaponModule())
                 .build();
-        weaponComponent.inject(this);
+        weaponComponent.inject(this);*/
         superHeroComponent.inject(this);
 
         tvAttackPowerBadAss = (TextView) this.findViewById(R.id.tv_attackpower_badassbatman);
@@ -66,7 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 badAssBatman.doAttack() + "");
         tvAttackSpeedBadAss.setText(
                 badAssBatman.velocity() + "");
-
 
 
     }

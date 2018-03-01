@@ -1,9 +1,5 @@
 package com.wnd.dagger.weapon;
 
-/**
- * Created by Wandy on 03/12/17.
- */
-
 public class Batarang {
 
     private int attackPower = 30;
