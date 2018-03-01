@@ -15,8 +15,8 @@ import dagger.Provides;
 public class WeaponModule {
 
     @Provides
-    public Weapon provideDefaultWeapon(int attack, int velocity) {
-        return new Laser(attack, velocity);
+    public Weapon provideDefaultWeapon() {
+        return new Laser();
     }
 
     /*@Provides
