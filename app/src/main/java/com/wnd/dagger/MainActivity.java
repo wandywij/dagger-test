@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
     public void setupWeaponComponent() {
         superHeroComponent = DaggerSuperHeroComponent.builder()
                 .superHeroModule(new SuperHeroModule())
-                .weaponModule(new WeaponModule(2, 6))
+                //.weaponModule(new WeaponModule(2, 6)) //ini kalau ada parameter
+                .weaponModule(new WeaponModule()) //tanpa parameter, attack 1 velocity 1
                 .build();
 
         superHeroComponent.inject(this);

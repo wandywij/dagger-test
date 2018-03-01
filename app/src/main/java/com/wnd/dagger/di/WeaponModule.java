@@ -23,6 +23,10 @@ public class WeaponModule {
         this.velocity = velocity;
     }
 
+    public WeaponModule() {
+
+    }
+
     @Provides
     public Weapon provideDefaultWeapon() {
         return new Laser();
