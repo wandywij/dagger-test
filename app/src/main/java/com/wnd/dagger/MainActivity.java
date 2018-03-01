@@ -13,6 +13,7 @@ import com.wnd.dagger.di.SuperHeroModule;
 import com.wnd.dagger.di.WeaponComponent;
 import com.wnd.dagger.di.WeaponModule;
 import com.wnd.dagger.weapon.GraplingHook;
+import com.wnd.dagger.weapon.Laser;
 import com.wnd.dagger.weapon.Weapon;
 
 import javax.inject.Inject;
@@ -25,12 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private WeaponComponent weaponComponent;
 
     @Inject
-    @Named("laser")
     BadAssBatman badAssBatman;
-
-    //@Inject
-    //@Named("grapling_hook")
-    //GraplingHook graplingHook;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         BadBatman badBatman = new BadBatman();
         int attackPower = badBatman.attack();
         int attackSpeed = badBatman.attackSpeed();
+
         tvAttackPower.setText(attackPower + "");
         tvAttackSpeed.setText(attackSpeed + "");
 
@@ -55,10 +52,6 @@ public class MainActivity extends AppCompatActivity {
                 .weaponModule(new WeaponModule())
                 .build();
 
-        /*weaponComponent = DaggerWeaponComponent.builder()
-                .weaponModule(new WeaponModule())
-                .build();
-        weaponComponent.inject(this);*/
         superHeroComponent.inject(this);
 
         tvAttackPowerBadAss = (TextView) this.findViewById(R.id.tv_attackpower_badassbatman);

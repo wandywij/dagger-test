@@ -3,13 +3,22 @@ package com.wnd.dagger.weapon;
 
 public class Laser implements Weapon {
 
+    private int attack;
+    private int velocity;
+
+    public Laser(int attack, int velocity) {
+        this.attack = attack;
+        this.velocity = velocity;
+    }
+
     @Override
     public int doAttack() {
-        return 11;
+        return attack * 2;
     }
 
     @Override
     public int velocity() {
-        return 13;
+        return velocity * 3;
     }
 }
+

@@ -2,7 +2,6 @@ package com.wnd.dagger.di;
 
 import com.wnd.dagger.best.BadAssBatman;
 import com.wnd.dagger.best.IronMan;
-import com.wnd.dagger.weapon.FasterBatarang;
 import com.wnd.dagger.weapon.Weapon;
 
 import javax.inject.Named;
@@ -19,7 +18,7 @@ public class SuperHeroModule {
         return new BadAssBatman(weapon);
     }
 
-    @Provides
+    /*@Provides
     @Named("grapling_hook")
     public BadAssBatman provideBatmanWithGraplingHook(@Named("grapling_hook") Weapon weapon) {
         return new BadAssBatman(weapon);
@@ -41,6 +40,6 @@ public class SuperHeroModule {
     @Named("with-bass-voice")
     public BadAssBatman provideBatmanWithBassVoice(@Named("bass-voice") Weapon weapon) {
         return new BadAssBatman(weapon);
-    }
+    }*/
 
 }

@@ -15,23 +15,23 @@ import dagger.Provides;
 public class WeaponModule {
 
     @Provides
-    public Weapon provideDefaultWeapon() {
-        return new GraplingHook();
+    public Weapon provideDefaultWeapon(int attack, int velocity) {
+        return new Laser(attack, velocity);
     }
 
-    @Provides
-    @Named("grapling_hook")
-    public Weapon provideGraplingHook() {
-        return new GraplingHook();
-    }
+    /*@Provides
+   // @Named("grapling_hook")
+    public Weapon provideGraplingHook(int attack, int velocity) {
+        return new GraplingHook(attack, velocity);
+    }*/
 
-    @Provides
-    @Named("bass-voice")
-    public Weapon provideBassVoice() {
-        return new BassVoice();
-    }
+    /*@Provides
+    //@Named("bass-voice")
+    public Weapon provideBassVoice(int attack, int velocity) {
+        return new BassVoice(attack, velocity);
+    }*/
 
-    @Provides
-    @Named("laser")
-    public Weapon provideLaser() { return new Laser(); }
+    /*@Provides
+    //@Named("laser")
+    public Weapon provideLaser(final int attack, final int velocity) { return new Laser(attack, velocity); }*/
 }
