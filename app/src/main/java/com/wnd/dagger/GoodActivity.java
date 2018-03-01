@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.wnd.dagger.bad.BadBatman;
 import com.wnd.dagger.best.BadAssBatman;
 import com.wnd.dagger.di.DaggerSuperHeroComponent;
 import com.wnd.dagger.di.SuperHeroComponent;
@@ -33,8 +32,8 @@ public class GoodActivity extends AppCompatActivity {
     @Inject
     BadAssBatman defaultBadAssBatman;
     @Inject
-    @Named("grapling_hook")
-    BadAssBatman badAssBatmanWithHook;
+    @Named("laser")
+    BadAssBatman badAssBatmanWithLaser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +47,7 @@ public class GoodActivity extends AppCompatActivity {
     public void setupWeaponComponent() {
         superHeroComponent = DaggerSuperHeroComponent.builder()
                 .superHeroModule(new SuperHeroModule())
-                .weaponModule(new WeaponModule())
+                .weaponModule(new WeaponModule(5, 5))
                 .build();
 
         superHeroComponent.inject(this);
@@ -60,7 +59,7 @@ public class GoodActivity extends AppCompatActivity {
         tvAttackPowerA.setText(defaultBadAssBatman.doAttack() + "");
         tvAttackSpeedA.setText(defaultBadAssBatman.velocity() + "");
 
-        tvAttackPowerB.setText(badAssBatmanWithHook.doAttack() + "");
-        tvAttackSpeedB.setText(badAssBatmanWithHook.velocity() + "");
+        tvAttackPowerB.setText(badAssBatmanWithLaser.doAttack() + "");
+        tvAttackSpeedB.setText(badAssBatmanWithLaser.velocity() + "");
     }
 }

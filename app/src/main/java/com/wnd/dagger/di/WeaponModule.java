@@ -14,6 +14,16 @@ import dagger.Provides;
 
 @Module
 public class WeaponModule {
+    private int attack;
+    private int velocity;
+
+    public WeaponModule() {
+    }
+
+    public WeaponModule(int attack, int velocity) {
+        this.attack = attack;
+        this.velocity = velocity;
+    }
 
     @Provides
     public Weapon provideDefaultWeapon() {
@@ -32,7 +42,21 @@ public class WeaponModule {
         return new BassVoice(attack, velocity);
     }*/
 
-    /*@Provides
-    //@Named("laser")
-    public Weapon provideLaser(final int attack, final int velocity) { return new Laser(attack, velocity); }*/
+    @Provides
+    @Named("laser")
+    public Weapon provideLaser(@Named("attack") int attack, @Named("velocity") int velocity) {
+        return new Laser(attack, velocity);
+    }
+
+    @Provides
+    @Named("attack")
+    public int provideAttack() {
+        return attack;
+    }
+
+    @Provides
+    @Named("velocity")
+    public int provideVelocity() {
+        return velocity;
+    }
 }

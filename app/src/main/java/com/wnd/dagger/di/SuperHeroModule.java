@@ -23,13 +23,13 @@ public class SuperHeroModule {
         return new BadAssBatman(weapon);
     }
 
-    /*@Provides
+    @Provides
     @Named("laser")
     public BadAssBatman provideBatmanWithLaser(@Named("laser") Weapon weapon) {
         return new BadAssBatman(weapon);
     }
 
-    @Provides
+    /*@Provides
     @Named("with-bass-voice")
     public BadAssBatman provideBatmanWithBassVoice(@Named("bass-voice") Weapon weapon) {
         return new BadAssBatman(weapon);
